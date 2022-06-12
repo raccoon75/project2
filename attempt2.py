@@ -212,7 +212,7 @@ with st.echo(code_location='below'):
     conn = sqlite3.connect("data.sqlite")
     c = conn.cursor()
     teslasqldf = pd.read_csv('https://raw.githubusercontent.com/oubielamir/Tesla-Stock-Analysis/master/TSLA.csv')
-    teslasqldf.to_sql('tesla', conn)
+    teslasqldf = teslasqldf.to_sql('tesla', conn)
     teslasqldf = teslasqldf.rename(columns={'Adj Close': 'AdjClose'})
     tesladf = pd.read_sql(
         """
